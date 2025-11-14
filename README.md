@@ -1,30 +1,35 @@
-📓 JournalApp – Spring Boot Project
+###JournalApp – Spring Boot Application
 
-A secure and scalable Spring Boot application for managing personal journal entries with JWT authentication, Redis caching, Kafka events, and weekly email notifications through SMTP.
+A secure and scalable Spring Boot application for managing journal entries, featuring JWT authentication, Redis caching, Kafka event streaming, and automated weekly email reports using SMTP.
 
-🔥 Features
+🚀 Features
 
-User registration & login with JWT
+🔐 JWT-based login & authentication
 
-CRUD operations for journal entries
+👤 Role-based access (User/Admin)
 
-Role-based access (User/Admin)
+📝 CRUD for journal entries
 
-Redis Cache for fast data access
+⚡ Redis caching for performance
 
-Kafka event publishing on user signup and journal creation
+🔊 Kafka producer (events on signup & journal creation)
 
-Weekly summary email sent via SMTP (Spring Mail)
+⏰ Weekly scheduled email summary using Spring Scheduler
 
-Weather API integration (optional)
+✉️ SMTP email sending (Gmail/Yahoo/Outlook supported)
 
-Unit tests included
+🌦️ Optional Weather API integration
+
+🧪 Unit tests included
 
 🛠 Tech Stack
+Backend
 
-Java: 17
+Java 17
 
-Spring Boot: 3.x
+Spring Boot 3
+
+Spring Web
 
 Spring Data JPA
 
@@ -32,22 +37,47 @@ Spring Security
 
 Spring Mail (SMTP)
 
-Redis
+Spring Scheduler
 
 Apache Kafka
 
-Maven
+Redis Cache
+
+Database
 
 MySQL / PostgreSQL
 
+Build Tool
+
+Maven
+
+📂 Project Structure
+journalApp/
+ ├── src/main/java/com/ranchopro/journalApp
+ │    ├── controller/
+ │    ├── service/
+ │    ├── repository/
+ │    ├── entity/
+ │    ├── config/
+ │    ├── scheduler/
+ │    ├── utils/
+ │    ├── api/
+ │    └── JournalAppApplication.java
+ ├── src/test/
+ ├── pom.xml
+ └── README.md
+
 ⚙️ Setup Instructions
-1️⃣ Clone the project
+1️⃣ Clone the Repository
 git clone <your-repo-url>
 cd journalApp
 
-2️⃣ Configure application.yml
+🧾 2️⃣ Configure application.yml
 
-Create this file:
+⚠️ Do NOT commit your real credentials.
+Push only an example file like application-example.yml.
+
+Create your application.yml:
 
 server:
   port: 8080
@@ -71,45 +101,51 @@ spring:
       mail.smtp.auth: true
       mail.smtp.starttls.enable: true
 
-spring:
-  redis:
-    host: localhost
-    port: 6379
+redis:
+  host: localhost
+  port: 6379
 
-
-🚫 Do not push your real credentials!
-Add only an example file application-example.yml.
-
-🚀 Run the Application
-Using Maven
-mvn spring-boot:run
-
-OR build jar
-mvn clean package
-java -jar target/journalApp-0.0.1.jar
-
-🔊 Kafka Setup (if using locally)
+🔊 3️⃣ Kafka Setup (Local)
 
 Start Zookeeper:
 
 zookeeper-server-start.sh config/zookeeper.properties
 
 
-Start Kafka:
+Start Kafka Broker:
 
 kafka-server-start.sh config/server.properties
 
-🧪 Run Tests
+🚀 4️⃣ Run the Application
+Using Maven
+mvn spring-boot:run
+
+OR Build JAR
+mvn clean package
+java -jar target/journalApp-0.0.1.jar
+
+🧪 5️⃣ Run Tests
 mvn test
 
-📁 Project Structure
-src/
- ├── main/
- │    ├── java/com/ranchopro/journalApp
- │    ├── resources/
- └── test/
+✉️ Weekly Email Summary
+
+A Spring Scheduler job automatically sends a weekly journal summary email to each user:
+
+@Scheduled(cron = "0 0 0 * * SUN")
+public void sendWeeklySummary() {
+    // Logic to send weekly summary email
+}
+
+🔐 Authentication Flow
+User Login → Server validates → Returns JWT
+↓
+Client sends JWT in Authorization Header
+↓
+JwtFilter checks token on every request
+↓
+Access granted/denied
 
 👨‍💻 Author
 
 Akash Singh
-Full Stack Developer – Java | Spring Boot | React | Redis | Kafka
+Full Stack Developer | Java | Spring Boot | React | Redis | Kafka
