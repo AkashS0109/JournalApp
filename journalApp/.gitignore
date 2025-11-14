@@ -1,0 +1,96 @@
+#############################
+# Java & Maven / Gradle
+#############################
+
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Maven wrapper
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+**/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+#############################
+# IDEs
+#############################
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse / STS
+.classpath
+.project
+.settings/
+.apt_generated/
+.factorypath/
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+#############################
+# OS files
+#############################
+
+.DS_Store
+Thumbs.db
+
+#############################
+# Sensitive configuration
+#############################
+
+src/main/resources/application.properties
+src/main/resources/application.yml
+src/main/resources/application-*.properties
+src/main/resources/application-*.yml
+
+#############################
+# Logs
+#############################
+
+logs/
+*.log
+
+#############################
+# Docker
+#############################
+
+docker-data/
+*.pid
+
+#############################
+# Temporary files
+#############################
+
+*.tmp
+*.swp
+*.swo
+
+#############################
+# Test outputs
+#############################
+
+test-results/
+reports/
