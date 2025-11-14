@@ -62,7 +62,7 @@ journalApp/
 
 ### **1️⃣ Clone the Repository**
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/AkashS0109/JournalApp.git
 cd journalApp
 ```
 
